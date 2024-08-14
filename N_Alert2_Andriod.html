@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaz Clock</title>
+    <style>
+
+        body {
+            background-image: url("Kaaba.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            background: url("Mosque_Pillers.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 5vw; /* Use viewport width for responsive sizing */
+            font-weight: 100;
+            margin-top: 5px;
+            border-radius: 10px;
+            background-color: aquamarine;
+            color: #6e7f92f6;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .clock {
+            padding-top: 5px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(40px);
+            color: #6e7f92f6;
+            z-index: 10;
+            width: 100%;
+        }
+
+        .clock span {
+            font-size: 12vw; /* Use viewport width for responsive sizing */
+            width: 25%;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+        }
+
+        .clock span::after {
+            font-size: 4vw;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #hrs::after {
+            content: "HOURS";
+            color: #0f0;
+            font-weight: 600;
+        }
+
+        #min::after {
+            content: "MINS";
+            color: #0ff;
+            font-weight: 600;
+        }
+
+        #sec::after {
+            content: "SEC";
+            color: #ff0;
+            font-weight: 600;
+        }
+
+        .Twin {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .Timer {
+            background-color: rgb(0, 153, 255);
+            display: flex;
+            border-radius: 1em;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .Namaz_sh {
+            background: url("Mosque_SL.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 1em;
+            display: inline-block;
+           /* flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;*/
+            backdrop-filter: blur(40px);
+            color: #6e7f92f6;
+           /* z-index: 10; */
+            margin-top: 20px;
+          /*  padding: 2px; */
+           /* width: 100%;  */
+        }
+
+        label {
+            display: inline-block;
+            padding: 5px 11px;
+            border-radius: 30px;
+            font-size: 5vw; /* Responsive font size */
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            background-color: #ff8a00;
+            border: 2px solid #ff8a00;
+            box-shadow: 0px 5px 15px rgba(255, 138, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+           margin-top: 10px;
+            cursor: pointer;
+        }
+
+        label:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8);
+            background-color: #ffca28;
+            border: 2px solid #ffca28;
+        }
+
+        .btn_set{
+            display: inline-block;
+            padding: 5px 11px;
+            font-size: 4vw;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: #9C27B0;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #9C27B0;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .btn_set:hover{
+            color: green;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px #9C27B0, 0px 0px 40px #9C27B0;
+        }
+
+        .btn_R_Set,.close_btn {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              padding: 5px 11px;
+              font-size: 4vw;
+              font-weight: bold;
+              text-transform: uppercase;
+              color: #fff;
+              background-color: #9C27B0;
+              border: none;
+              border-radius: 5px;
+              box-shadow: 0px 0px 10px #9C27B0;
+              transition: all 0.3s ease-in-out;
+              text-decoration: none;
+              cursor: pointer;
+        }
+        .btn_R_Set:hover {
+            color: red;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px #9C27B0, 0px 0px 40px #9C27B0;
+        }
+
+
+
+        .N_Span {
+            display: inline-block;
+            padding: 5px 11px;
+            border-radius: 2px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #eb0909;
+            background-color: aliceblue;
+            transition: all 0.3s ease-in-out;
+            cursor: not-allowed;
+            font-size: 8vw;
+            text-align: center;
+            position: relative;
+             margin-top: 10px;
+        }
+
+        /* Modal styles */
+        .modal, .modal_2 {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content, .modal-content_2 {
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close, .close_2 {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover, .close_2:hover, .close:focus, .close_2:focus {
+            color: black;
+            cursor: pointer;
+        }
+
+        .time-input {
+            width: 60px;
+            font-size: 2rem;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .am-pm-group {
+            margin-top: 10px;
+        }
+
+        .am-pm-group label {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .modal button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background-color: #9C27B0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #9C27B0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .modal button:hover {
+            background-color: #ff4081;
+            box-shadow: 0px 0px 15px #ff4081;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 8vw;
+            }
+
+            .clock span {
+                font-size: 10vw;
+            }
+
+            .clock span::after {
+                font-size: 3vw;
+            }
+
+            .N_Span {
+                font-size: 6vw;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="Timer">
+
+            <div class="Twin">
+                <div class="clock">
+                    <span id="hrs">00</span>
+                    <span>:</span>
+                    <span id="min">00</span>
+                    <span>:</span>
+                    <span id="sec">00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Namaz_sh">
+        <label>FAJAR</label>
+        <h3 id="F_H" class="N_Span">00</h3>
+        <h3 id="F_M" class="N_Span">00</h3>
+        <button class="btn_set" onclick="openModal('F_H', 'F_M')">Set Alarm</button>
+        <button class="btn_R_Set" onclick="R_Set();">Reset Alarm</button>
+        <br>
+        <label>DHUHR</label>
+        <h3 id="D_H" class="N_Span">00</h3>
+        <h3 id="D_M" class="N_Span">00</h3>
+        <button class="btn_set" onclick="openModal('D_H', 'D_M')">Set Alarm</button>
+        <button class="btn_R_Set" onclick="R_Set();">Reset Alarm</button>
+           <br>
+        <label>ASR</label>
+        <h3 id="A_H" class="N_Span">00</h3>
+        <h3 id="A_M" class="N_Span">00</h3>
+        <button class="btn_set" onclick="openModal('A_H', 'A_M')">Set Alarm</button>
+        <button class="btn_R_Set" onclick="R_Set();">Reset Alarm</button>
+        <br>
+        <label>MAGHRIB</label>
+        <h3 id="M_H" class="N_Span">00</h3>
+        <h3 id="M_M" class="N_Span">00</h3>
+        <button class="btn_set" onclick="openModal('M_H', 'M_M')">Set Alarm</button>
+        <button class="btn_R_Set" onclick="R_Set();">Reset Alarm</button>
+        <br>
+        <label>ISHA</label>
+        <h3 id="I_H" class="N_Span">00</h3>
+        <h3 id="I_M" class="N_Span">00</h3>
+        <button class="btn_set" onclick="openModal('I_H', 'I_M')">Set Alarm</button>
+        <button class="btn_R_Set" onclick="R_Set();">Reset Alarm</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal();">&times;</span>
+            <div>
+                <label for="hours">Hours:</label>
+                <input id="hours" class="time-input" type="number" min="0" max="23">
+            </div>
+            <div>
+                <label for="minutes">Minutes:</label>
+                <input id="minutes" class="time-input" type="number" min="0" max="59">
+            </div>
+            <div class="am-pm-group">
+                <label for="am">AM</label>
+                <input id="am" type="radio" name="ampm" value="AM">
+                <label for="pm">PM</label>
+                <input id="pm" type="radio" name="ampm" value="PM">
+            </div>
+            <button onclick="setAlarm();">Set</button>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="myModal_2" class="modal_2">
+        <div class="modal-content_2">
+            <span class="close_2" onclick="closeModal_2();">&times;</span>
+            <h2>Alarm Ringing......</h2>
+            <h1 id="Display_Alert"></h1>
+            <button class="close_btn" onclick="closeModal_2();">Close</button>
+        </div>
+    </div>
+
+ <audio id="alarmAudio" src="Azaan_Alarm.mp3" preload="auto"></audio>
+
+   <script>
+
+     var alarmAudio = document.getElementById('alarmAudio');
+
+function playAlarm() {
+    alarmAudio.play();
+}
+
+    let alarms = [];  // Array to store alarm times
+
+    // Example clock script
+    function startClock() {
+        setInterval(() => {
+            var now = new Date();
+            var hours = String(now.getHours()).padStart(2, '0');
+            var minutes = String(now.getMinutes()).padStart(2, '0');
+            var seconds = String(now.getSeconds()).padStart(2, '0');
+
+            document.getElementById('hrs').textContent = hours;
+            document.getElementById('min').textContent = minutes;
+            document.getElementById('sec').textContent = seconds;
+
+            checkAlarms(hours, minutes);  // Check if an alarm should ring
+        }, 1000);
+    }
+
+    function openModal(hourId, minuteId) {
+        var modal = document.getElementById('myModal');
+        modal.style.display = "flex";
+
+        // Store the ID of the element to update when the alarm is set
+        modal.dataset.hourId = hourId;
+        modal.dataset.minuteId = minuteId;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = "none";
+    }
+
+    function setAlarm() {
+        var modal = document.getElementById('myModal');
+        var hourId = modal.dataset.hourId;
+        var minuteId = modal.dataset.minuteId;
+
+        var hours = document.getElementById('hours').value.padStart(2, '0');
+        var minutes = document.getElementById('minutes').value.padStart(2, '0');
+        var ampm = document.querySelector('input[name="ampm"]:checked').value;
+
+        let alarmHour = parseInt(hours);
+        if (ampm === 'PM' && alarmHour < 12) {
+            alarmHour += 12;
+        } else if (ampm === 'AM' && alarmHour === 12) {
+            alarmHour = 0;
+        }
+
+        alarms.push({ hour: String(alarmHour).padStart(2, '0'), minute: minutes });  // Store the alarm
+
+        document.getElementById(hourId).textContent = String(alarmHour).padStart(2, '0');
+        document.getElementById(minuteId).textContent = minutes;
+        closeModal();
+       
+    }
+
+    function closeModal_2() {
+        var modal_2 = document.getElementById('myModal_2');
+        modal_2.style.display = "none";
+    }
+
+    function checkAlarms(currentHour, currentMinute) {
+        alarms.forEach(alarm => {
+            if (alarm.hour === currentHour && alarm.minute === currentMinute) {
+                playAlarm();
+                 document.getElementById('myModal_2').style.display = "flex";
+         document.getElementById('Display_Alert').innerHTML = `You Set The Alarm For ${currentHour}:${currentMinute} For Prayer`;
+          closeModal();
+            }
+        });
+    }
+
+   /* function playAlarmTune() {
+        var alarmSound = new Audio('Azaan_Alarm.mp3');  // Replace with the path to your alarm tune file
+        alarmSound.play();
+         
+    }
+*/
+    function R_Set() {
+        alarms = [];  // Reset all alarms
+        document.querySelectorAll('.N_Span').forEach(el => el.textContent = '00');
+    }
+
+    startClock();  // Start the clock when the page loads
+</script>
+
+</body>
+</html>
