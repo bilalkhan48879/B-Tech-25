@@ -1,0 +1,288 @@
+  body
+   {
+           background: url("BT Apps And Technologies.png");
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+      }
+
+  /*      #image-container img 
+        {
+            width: 550px;
+            height: 350px;
+            padding: 20px 20px 20px 20px;
+
+        }
+  */      
+    #head
+    {
+      background-color: aliceblue;
+      border-radius: 10px;
+    }
+
+    #Sub_But
+    {
+        display: inline-block;
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+       transform: scale(1.1);
+       box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8);
+       border: 2px solid #ffca28;
+        margin-top: 12px;
+        margin-left: 10px;
+    }
+        #Sub_But:hover 
+    {
+        transform: rotate(360deg);
+        box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8);
+        background-color: #ffca28;
+        border: 2px solid #ffca28;
+        cursor: pointer;
+    }
+ .Sub_But_2
+
+    {
+        display: inline-block;
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        border: 2px lightblue #ff8a00;
+        box-shadow: 0px 5px 15px rgba(255, 138, 0, 0.5);
+        transition: all 0.3s ease-in-out;
+        margin-top: 12px;
+        cursor: pointer;
+    }
+
+    input
+    {
+        display: inline-block;
+        padding: 12px 28px;
+        border-radius: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        border: 2px seagreen ;
+        box-shadow: 0px 5px 15px rgba(255, 138, 0, 0.5);
+        transition: all 0.3s ease-in-out;
+        margin-top: 12px;
+    }
+
+
+
+    /*Spinner*/
+.spin_body
+ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.spinner {
+    margin-top: 50px;
+    border: 8px solid #f3f3f3; /* Light grey background */
+    border-top: 8px solid #3498db; /* Blue color */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#footer {
+    border-radius: 10px;
+    margin-top: 500px;
+     background: url("BT Apps And Technologies.png");
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+    width: 100%; /* Full width of the viewport */
+    height: 427px;
+    padding: 20px; /* Optional: Add padding for inner content spacing */
+
+    color: white; /* Optional: Text color */
+    text-align: center; /* Optional: Center text */
+}
+
+
+#footer img
+{
+
+            width: 100px;
+            height: 100px;
+            image-resolution: 100%;
+            margin-top: 20px;
+           border: dotted black;
+}
+#footer img:hover
+{
+    cursor: no-drop;
+}
+
+
+
+#capture-area
+{
+            position: relative;
+            display: inline-block;
+}
+
+#im-result
+{
+            width: 100%;
+            height: auto;
+}
+/*
+.overlay-text
+{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+}
+*/
+
+
+  .moving-dotted-border {
+            position: relative;
+            padding: 20px;
+            border: 4px dotted transparent; /* Transparent border to use background for animation */
+            border-radius: 8px;
+            background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c, #2ecc71);
+            background-size: 400% 400%;
+            animation: gradientShift 5s linear infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+       
+
+        /*For Four*/
+
+
+        #image-container img {
+            max-width: 200px;
+            height: auto;
+             display: flex;
+           flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center; /* Centers the images in the container */
+          margin-top: 20px;
+
+        }
+        .overlay-text {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            font-size: 12px;
+            margin-bottom: 50px;
+        }
+        .generated-image {
+            max-width: 200px;
+            max-height: 200px;
+          
+        }
+        button {
+            display: block;
+            margin: 5px auto;
+        border-radius: 30px;
+        color: black;
+        background-color: white;
+        border: 2px lightblue #ff8a00;
+        box-shadow: 0px 5px 15px rgba(255, 138, 0, 0.5);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        }   
+
+
+#images_head
+{
+      background: url("Desktop_Wall.jpg");
+      border-radius: 10px;
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+}          
+
+
+.icon-style {
+    margin-top: 60px;
+    text-align: center; /* Ensure icons are centered horizontally */
+}
+
+.icon-style a {
+    font-size: 30px;
+    margin-left: 40px;
+    padding: 20px 20px;
+    background: rgba(0, 0, 0, 0.5); /* Use rgba for semi-transparent black background */
+    color: #858486; /* Initial color for icons */
+    border-radius: 50%;
+    display: inline-flex;
+    text-decoration: none;
+    transition: .5s all; /* Transition for smooth hover effect */
+}
+
+.icon-style a:first-child {
+    margin-left: 10px; /* Adjust spacing for the first icon */
+}
+
+.icon-style a:hover {
+    color: #fff; /* Change icon color on hover */
+    background: blue; /* Change background color on hover */
+}
+.icon-style .b_insta:hover {
+    color: #fff; /* Change icon color on hover */
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
+}
+.icon-style .c_youth:hover {
+    color: #fff; /* Change icon color on hover */
+    background: red; /* Change background color on hover */
+}
+.icon-style .d_blog:hover {
+    color: #fff; /* Change icon color on hover */
+    background: orange; /* Change background color on hover */
+}
