@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT Imagines</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="TTI_apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="TTI_favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="TTI_favicon-16x16.png">
+    <link rel="manifest" href="TTI_site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" type="text/css" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+   <h1 id="head">BT Imagines</h1>
+   <center><button id="openModal">How to Use</button></center><br>
+
+<input type="text" id="description" placeholder="Enter a description"><button type="button" id="Sub_But" value="Generate Images" onclick="generateImages();">
+    Generate Images <i id="magic" class="fa-solid fa-wand-sparkles"></i>
+</button>
+
+   <center>
+       <div id="images_head">
+           <div id="spiny" class="dot-spinner" style="display:none;">
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+               <div></div>
+           </div>
+
+           <div id="loader" class="loading-text-container" style="display:none;">
+               <div class="loading-text">Generating Images...</div>
+               <div class="loading-bar"></div>
+           </div>
+
+           <div id="image-container" style="background-color: transparent;"></div>
+       </div>
+   </center>
+
+   <style>
+       /* Dot Spinner CSS */
+       .dot-spinner {
+           display: none;
+           position: relative;
+           width: 80px;
+           height: 80px;
+           margin: 20px auto;
+       }
+       .dot-spinner div {
+           position: absolute;
+           width: 16px;
+           height: 16px;
+           border-radius: 50%;
+           animation: dot-spinner 1.2s linear infinite;
+       }
+       .dot-spinner div:nth-child(1) { top: 8px; left: 8px; background: #ff4136; animation-delay: 0s; }
+       .dot-spinner div:nth-child(2) { top: 8px; left: 32px; background: #ff851b; animation-delay: -0.4s; }
+       .dot-spinner div:nth-child(3) { top: 8px; left: 56px; background: #ffdc00; animation-delay: -0.8s; }
+       .dot-spinner div:nth-child(4) { top: 32px; left: 8px; background: #2ecc40; animation-delay: -0.4s; }
+       .dot-spinner div:nth-child(5) { top: 32px; left: 32px; background: #0074d9; animation-delay: -0.8s; }
+       .dot-spinner div:nth-child(6) { top: 32px; left: 56px; background: #b10dc9; animation-delay: -1.2s; }
+       .dot-spinner div:nth-child(7) { top: 56px; left: 8px; background: #f012be; animation-delay: -0.8s; }
+       .dot-spinner div:nth-child(8) { top: 56px; left: 32px; background: #01ff70; animation-delay: -1.2s; }
+       .dot-spinner div:nth-child(9) { top: 56px; left: 56px; background: #aaaaaa; animation-delay: -1.6s; }
+       @keyframes dot-spinner { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+       /* Loading Text and Bar CSS */
+       .loading-text-container {
+           position: relative;
+           width: 300px;
+           height: 50px;
+           margin: 20px auto;
+           overflow: hidden;
+           background-color: transparent;
+           border-radius: 25px;
+       }
+       .loading-text {
+           position: absolute;
+           top: 50%;
+           left: 0;
+           width: 100%;
+           text-align: center;
+           font-size: 18px;
+           font-weight: bold;
+           color: #333;
+           transform: translateY(-50%);
+       }
+       .loading-bar {
+           position: absolute;
+           top: 0;
+           left: -100%;
+           width: 100%;
+           height: 100%;
+           background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+           animation: loading 2s infinite;
+       }
+       @keyframes loading {
+           0% { left: -100%; }
+           100% { left: 100%; }
+       }
+   </style>
+
+   <script>
+       async function generateImages() {
+           const description = document.getElementById('description').value;
+
+           if (!description) {
+               alert('Please enter a description to generate images.');
+               return;
+           }
+
+           // Show spinner and loader when generation starts
+           showDotSpinner();
+           showLoadingText();
+
+           try {
+               // Simulate API call for image generation
+               await new Promise(resolve => setTimeout(resolve, 5000)); // Simulate 5 seconds delay
+
+               // Hide spinner and loader after image generation completes
+               hideDotSpinner();
+               hideLoadingText();
+
+               // Add generated images to the container (mock images for demo)
+               document.getElementById('image-container').innerHTML = '<p>Images generated successfully!</p>';
+           } catch (error) {
+               console.error('Error generating images:', error);
+               hideDotSpinner();
+               hideLoadingText();
+               alert('Failed to generate images.');
+           }
+       }
+
+       function showDotSpinner() {
+           document.getElementById('spiny').style.display = 'block';
+       }
+
+       function hideDotSpinner() {
+           document.getElementById('spiny').style.display = 'none';
+       }
+
+       function showLoadingText() {
+           document.getElementById('loader').style.display = 'block';
+       }
+
+       function hideLoadingText() {
+           document.getElementById('loader').style.display = 'none';
+       }
+   </script>
+
+                        <!--Footer With Rotatins-->
+<div id="footer" >
+
+    <img src="BT Apps.jpg">
+    <h2>BT Apps and Technologies</h2>
+    <div class="icon-style">
+        <h3>Personal Accounts</h3>
+        <a class="a_face" href="https://web.facebook.com/people/The-Tech-At-Home/100076056498111/">
+            <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a class="b_insta" href="https://www.instagram.com/m.bilalkhan3/?hl=en">
+            <i class="fa-brands fa-square-instagram"></i>
+        </a>
+        <a class="c_youth" href="https://www.youtube.com/channel/UCBVmnK49MaDEhTFDfa3cZUQ">
+         <i class="fa-brands fa-square-youtube"></i>
+     </a>
+     
+     <a class="d_blog" href="https://bilalkhantech25.blogspot.com">
+         <i class="fa-brands fa-blogger"></i>
+     </a> 
+
+</div>
+
+                          <!-- Modal For Use -->
+   <div id="descriptionModal" class="modal">
+       <div class="modal-content">
+           <span class="close">&times;</span>
+           <h2>How to Use BT Imagines</h2>
+           <p>Welcome to BT Imagines, your free text-to-image generator! Here's how to use it:</p>
+           <ol>
+               <li>Enter a detailed description of the image you want to create in the text box.</li>
+               <li>Click the "Generate Images" button.</li>
+               <li>Wait while our AI creates 6 unique images based on your description.</li>
+               <li>Once generated, you can download images with or without the BT Apps watermark.</li>
+           </ol>
+           <p>Tips for best results:</p>
+           <ul>
+               <li>Be specific in your descriptions.</li>
+               <li>Experiment with different phrasings to get varied results.</li>
+               <li>Have fun and let your imagination run wild!</li>
+           </ul>
+           <h1><i class="fa-regular fa-copyright"></i> 2024 BT Apps and Technologies</h1>
+       </div>
+   </div>
+
+                                       <!--Modal For Description-->
+   <div id="alertModal" class="modal">
+       <div class="modal-content">
+           <span class="close">&times;</span>
+           <div class="icon-style">
+            <a class="c_youth_er" href=""><i class="fa-solid fa-triangle-exclamation"></i></a>
+           </div>
+           <h2>Please enter a description to generate images.</h2>
+           <button id="Cl_But" onclick="alertModal.style.display = 'none';">Close</button>
+       </div>
+       
+   </div>
+
+   <script>
+       // Get the alert modal
+       var alertModal = document.getElementById("alertModal");
+
+       // Get the <span> element that closes the modal
+       var alertSpan = alertModal.getElementsByClassName("close")[0];
+
+       // Function to show the alert modal
+       function showAlertModal() {
+           alertModal.style.display = "block";
+       }
+
+       // When the user clicks on <span> (x), close the modal
+       alertSpan.onclick = function() {
+           alertModal.style.display = "none";
+       }
+
+       // When the user clicks anywhere outside of the modal, close it
+       window.onclick = function(event) {
+           if (event.target == alertModal) {
+               alertModal.style.display = "none";
+           }
+       }
+
+
+  
+   </script>
+   <style>
+       .modal {
+           display: none;
+           position: fixed;
+           z-index: 1;
+           left: 0;
+           top: 0;
+           width: 100%;
+           height: 100%;
+           overflow: auto;
+           background-color: rgba(0,0,0,0.4);
+       }
+
+       .modal-content {
+           background-color: #fefefe;
+           color: #0074d9;
+           margin: 15% auto;
+           padding: 20px;
+           border: 1px solid #888;
+           width: 80%;
+           max-width: 600px;
+           border-radius: 10px;
+       }
+
+       .close {
+           color: #aaa;
+           float: right;
+           font-size: 28px;
+           font-weight: bold;
+       }
+
+       .close:hover,
+       .close:focus {
+           color: black;
+           text-decoration: none;
+           cursor: pointer;
+       }
+
+       #openModal {
+           background-color: #4CAF50;
+           color: rgb(240, 240, 240);
+           padding: 10px 20px;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+           margin-top: 20px;
+       }
+
+       #openModal:hover {
+           background-color: #45a049;
+       }
+   </style>
+
+   <script>
+       // Get the modal
+       var modal = document.getElementById("descriptionModal");
+
+       // Get the button that opens the modal
+       var btn = document.getElementById("openModal");
+
+       // Get the <span> element that closes the modal
+       var span = document.getElementsByClassName("close")[0];
+
+       // When the user clicks the button, open the modal 
+       btn.onclick = function() {
+           modal.style.display = "block";
+       }
+
+       // When the user clicks on <span> (x), close the modal
+       span.onclick = function() {
+           modal.style.display = "none";
+       }
+
+       // When the user clicks anywhere outside of the modal, close it
+       window.onclick = function(event) {
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       }
+   </script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
