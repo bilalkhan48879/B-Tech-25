@@ -14,6 +14,287 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+ <style>
+  body
+   {
+           background: url("BT Apps And Technologies.png");
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+      }
+
+ 
+    #head
+    {
+      background-color: aliceblue;
+      border-radius: 10px;
+    }
+
+    #Sub_But
+    {
+        display: inline-block;
+        padding: 12px 12px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        transform: rotate(360deg);
+      /* box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8); */
+       border: 2px solid #ffca28;
+       border-left: transparent;
+       border-top-right-radius: 5em;
+       border-bottom-right-radius: 5em;
+       
+         
+    }
+        #Sub_But:hover 
+    {
+        transform: rotate(360deg);
+     /*   box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8); */
+        background-color: #ffca28;
+        border: 2px solid #ffca28;
+        border-left: transparent;
+        cursor: pointer;
+    }
+#Cl_But
+{
+    display: inline-block;
+    padding: 12px 12px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(207, 18, 18);
+    transform: rotate(360deg);
+   box-shadow: 0px 10px 20px rgba(230, 3, 3, 0.8);
+   border: 2px solid #ec3305;
+   border-left: transparent;
+   border-radius: 10px;
+}
+#Cl_But:hover
+{
+    transform: rotate(360deg);
+    background-color: #d1290b;
+    border: 2px solid #ee0202;
+    cursor: pointer;
+}
+#description
+    {
+        display: inline-block;
+        padding: 12px 12px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        transform: rotate(360deg);
+   /*    box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8); */
+       border: 2px solid #ffca28;
+       border-right: transparent;
+       border-top-left-radius: 5em;
+       border-bottom-left-radius: 5em;
+    }
+#description:hover 
+    {
+        transform: rotate(360deg);
+   /*   box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8); */
+        background-color: #ffca28;
+        border: 2px solid #ffca28;
+        border-right: transparent;
+        cursor: text;
+    }
+
+
+           
+#footer {
+    border-radius: 10px;
+    margin-top: 75px;
+     background: url("BT Apps And Technologies.png");
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+    width: 100%; /* Full width of the viewport */
+    height: 427px;
+    padding: 20px; /* Optional: Add padding for inner content spacing */
+    color: white; /* Optional: Text color */
+    text-align: center; /* Optional: Center text */
+}
+
+
+#footer img
+{
+
+            width: 100px;
+            height: 100px;
+            image-resolution: 100%;
+            margin-top: 20px;
+           border: dotted black;
+}
+#footer img:hover
+{
+    cursor: no-drop;
+}
+
+
+
+#capture-area
+{
+            position: relative;
+            display: inline-block;
+}
+
+#im-result
+{
+            width: 100%;
+            height: auto;
+}
+
+
+                   /*For Six Images*/
+
+        #image-container img
+         {
+            max-width: 200px;
+            height: auto;
+             display: flex;
+           flex-wrap: wrap;
+          gap: 20px;
+          justify-content: center; /* Centers the images in the container */
+          margin-top: 20px;
+
+        }
+        .overlay-text 
+        {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            font-size: 12px;
+            margin-bottom: 50px;
+        }
+        .generated-image
+         {
+            max-width: 200px;
+            max-height: 200px;
+          
+        }
+        .dwn_but
+        {
+            display: block;
+            margin: 5px auto;
+        border-radius: 30px;
+        color: black;
+        background-color: white;
+        border: 2px lightblue #ff8a00;
+        box-shadow: 0px 5px 15px rgba(255, 138, 0, 0.5);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        }   
+
+
+#images_head
+{
+      background: url("Desktop_Wall.jpg");
+      border-radius: 10px;
+           background-repeat: no-repeat;
+           background-size: cover;
+           background-position: center;
+           background-attachment: fixed;
+}          
+
+
+.icon-style
+ {
+    margin-top: 60px;
+    text-align: center; /* Ensure icons are centered horizontally */
+}
+
+.icon-style a 
+{
+    font-size: 30px;
+    margin-left: 40px;
+    padding: 20px 20px;
+    background: rgba(0, 0, 0, 0.5); /* Use rgba for semi-transparent black background */
+    color: #858486; /* Initial color for icons */
+    border-radius: 50%;
+    display: inline-flex;
+    text-decoration: none;
+    transition: .5s all; /* Transition for smooth hover effect */
+}
+
+.icon-style a:first-child {
+    margin-left: 10px; /* Adjust spacing for the first icon */
+}
+
+.icon-style a:hover {
+    color: #fff; /* Change icon color on hover */
+    background: blue; /* Change background color on hover */
+}
+.icon-style .b_insta:hover {
+    color: #fff; /* Change icon color on hover */
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
+}
+.icon-style .c_youth:hover {
+    color: #fff; /* Change icon color on hover */
+    background: red; /* Change background color on hover */
+}
+.icon-style .c_youth_er {
+    color: #fff; /* Change icon color on hover */
+    background: red; /* Change background color on hover */
+}
+.icon-style .c_youth_er:hover {
+    color: #fff; /* Change icon color on hover */
+    background: red;
+    cursor: no-drop;
+     /* Change background color on hover */
+}
+
+.icon-style .d_blog:hover {
+    color: #fff; /* Change icon color on hover */
+    background: orange;
+    }   
+
+    .Sub_But
+    {
+        display: inline-block;
+        padding: 12px 12px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        background-color: white;
+        transform: rotate(360deg);
+      /* box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8); */
+       border: 2px solid #ffca28;
+       border-left: transparent;
+       border-top-right-radius: 10px;
+       border-bottom-right-radius: 10px;
+       
+         
+    }
+    .Sub_But:hover 
+    {
+        transform: rotate(360deg);
+     /*   box-shadow: 0px 10px 20px rgba(255, 138, 0, 0.8); */
+        background-color: #ffca28;
+        border: 2px solid #ffca28;
+        border-left: transparent;
+        cursor: pointer;
+    }
+
+</style>
 </head>
 <body>
    <h1 id="head">BT Imagines</h1>
@@ -326,6 +607,162 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+const API_KEY = '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';
+
+// Function to generate images from text input
+async function generateImages() {
+    const description = document.getElementById('description').value;
+           if (!description) {
+               showAlertModal();
+               return;
+           }
+
+   
+
+    try {
+        let spiner = document.getElementById('spiny');
+        let imageContainer = document.querySelector('#image-container');
+        
+        // Clear previous images and show spinner
+        imageContainer.innerHTML = ''; // Clear existing images
+        spiner.style.display = 'flex'; // Show spinner while images are generating
+        showLoadingText();
+
+        // Generate four different images
+        const imagePromises = Array(6).fill().map(() => query({ "inputs": description }));
+        const imageBlobs = await Promise.all(imagePromises);
+        const imageUrls = imageBlobs.map(blob => URL.createObjectURL(blob));
+
+        displayImages(imageUrls, '#image-container');
+
+        spiner.style.display = 'none'; // Hide spinner after images are generated
+        hideLoadingText();
+      
+    } catch (error) {
+        console.error('Error generating images:', error);
+        alert('Failed to generate images. Please check the console for details.');
+        let spiner = document.getElementById('spiny');
+        spiner.style.display = 'none'; // Ensure spinner is hidden in case of error
+        hideLoadingText();
+    }
+}
+
+// Function to query the API
+async function query(data) {
+    const response = await fetch(
+        "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
+        {
+            headers: {
+                'Authorization': `Bearer ${API_KEY}`,
+                'Content-Type': 'application/json',
+            },
+            method: 'POST',
+            body: JSON.stringify({
+                ...data,
+                "seed": Math.floor(Math.random() * 1000000) // Example of adding randomness
+            }),
+        }
+    );
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        console.error('API Error:', errorText);
+        throw new Error(`API request failed with status ${response.status}: ${errorText}`);
+    }
+
+    const result = await response.blob();
+    return result;
+}
+
+// Function to display generated images
+function displayImages(imageUrls, containerId) {
+    const imageContainer = document.querySelector(containerId);
+    imageContainer.innerHTML = `
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            ${imageUrls.map((url, index) => `
+                <div style="position: relative; display: inline-block;">
+                    <img src="${url}" alt="Generated Image ${index + 1}" class="generated-image" id="im-result-${index}">
+                    <div  class="overlay-text" id="overlay-text-${index}">BT Apps And Technologies</div>
+                    <div>
+                        <button class="dwn_but" onclick="saveImage(${index}, true)">Download Image ${index + 1} with Watermark</button>
+                        <button class="dwn_but" onclick="saveImage(${index}, false)">Download Image ${index + 1} without Watermark</button>
+                    </div>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+// Function to save the image
+function saveImage(index, includeText) {
+    const image = document.getElementById(`im-result-${index}`);
+    const overlayText = document.getElementById(`overlay-text-${index}`);
+
+    if (!image) {
+        console.error(`Element with id "im-result-${index}" not found.`);
+        return;
+    }
+
+   // Create a temporary container to hold both the image and the watermark text
+const captureContainer = document.createElement('div');
+captureContainer.style.position = 'relative';
+captureContainer.style.display = 'inline-block';
+captureContainer.style.width = image.width + 'px';
+captureContainer.style.height = image.height + 'px';
+
+// Append the image and watermark text to the temporary container
+captureContainer.appendChild(image.cloneNode());
+
+// Clone the watermark text and adjust its styling
+const watermark = overlayText.cloneNode(true);
+watermark.style.position = 'absolute';
+watermark.style.bottom = '10px'; // Position watermark 10px from the bottom
+watermark.style.left = '10px';   // Position watermark 10px from the left
+watermark.style.visibility = includeText ? 'visible' : 'hidden';
+
+// Append the watermark to the container
+captureContainer.appendChild(watermark);
+
+// Temporarily add the container to the body to capture it
+document.body.appendChild(captureContainer);
+
+html2canvas(captureContainer, {
+    backgroundColor: null, // Ensures no background is added
+    scale: 2, // Increases scale for HD quality
+    useCORS: true, // Allows for cross-origin images
+    logging: true // Enable logging to troubleshoot issues
+}).then(canvas => {
+    if (!canvas) {
+        console.error('Failed to create canvas.');
+        return;
+    }
+
+    const imgData = canvas.toDataURL('image/png');
+    if (!imgData) {
+        console.error('Failed to get image data from canvas.');
+        return;
+    }
+
+    const link = document.createElement('a');
+    link.href = imgData;
+    link.download = includeText ? `BT_Text_To_Image_${index + 1}.png` : `BT_Image_${index + 1}.png`;
+    document.body.appendChild(link); // Append link to body
+    link.click();
+    document.body.removeChild(link); // Remove link from body
+
+    // Remove the temporary container from the body
+    document.body.removeChild(captureContainer);
+}).catch(error => {
+    console.error('Error generating image:', error);
+    document.body.removeChild(captureContainer); // Ensure temporary container is removed
+});
+
+}
+
+
+//<div id="writer" style="background-color: #01ff70;" ><h1>writng</h1></div><div id="sercher" style="background-color: yellowgreen;" ><button>serching</button></div>
+
+</script>
 </body>
 </html>
